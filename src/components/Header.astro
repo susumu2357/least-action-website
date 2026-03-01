@@ -1,0 +1,65 @@
+---
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Founder', href: '#founder' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+  <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-serif text-xl font-semibold text-text hover:text-gold transition-colors duration-300">
+      Least Action AB
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="md:hidden p-2 text-text-muted hover:text-gold transition-colors"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <ul class="hidden md:flex gap-8">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="text-sm text-text-muted hover:text-gold transition-colors duration-300">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <ul id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-bg/95 backdrop-blur-md border-b border-border px-6 py-4 space-y-4 md:hidden">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="block text-text-muted hover:text-gold transition-colors duration-300">
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+
+  menu?.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).tagName === 'A') {
+      menu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

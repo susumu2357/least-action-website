@@ -1,0 +1,126 @@
+<section class="relative min-h-screen flex items-center justify-center px-6 pt-20 pb-12 overflow-hidden">
+  <!-- Coordinate grid -->
+  <div class="absolute inset-0 grid-bg"></div>
+
+  <!-- Radial glow -->
+  <div
+    class="absolute inset-0"
+    style="background: radial-gradient(ellipse at 50% 40%, rgba(200,162,106,0.06) 0%, transparent 60%);"
+  ></div>
+
+  <!-- Path integral visualization -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <svg
+      viewBox="0 0 800 400"
+      class="w-full max-w-4xl opacity-40"
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <!-- Possible trajectories (Feynman paths) -->
+      <path
+        d="M 80 60 C 300 -80 500 200 720 340"
+        pathLength="1"
+        stroke="rgba(91,143,217,0.2)"
+        stroke-width="1"
+        class="path-bg"
+        style="animation-delay: 0.2s"
+      />
+      <path
+        d="M 80 60 L 720 340"
+        pathLength="1"
+        stroke="rgba(91,143,217,0.12)"
+        stroke-width="1"
+        class="path-bg"
+        style="animation-delay: 0s"
+      />
+      <path
+        d="M 80 60 C 80 320 300 380 720 340"
+        pathLength="1"
+        stroke="rgba(91,143,217,0.2)"
+        stroke-width="1"
+        class="path-bg"
+        style="animation-delay: 0.5s"
+      />
+      <path
+        d="M 80 60 C 350 320 450 30 720 340"
+        pathLength="1"
+        stroke="rgba(91,143,217,0.12)"
+        stroke-width="1"
+        class="path-bg"
+        style="animation-delay: 0.7s"
+      />
+      <path
+        d="M 80 60 C 200 -80 600 80 720 340"
+        pathLength="1"
+        stroke="rgba(91,143,217,0.2)"
+        stroke-width="1"
+        class="path-bg"
+        style="animation-delay: 0.3s"
+      />
+
+      <!-- Golden path — the path of least action -->
+      <path
+        d="M 80 60 C 200 130 500 310 720 340"
+        pathLength="1"
+        stroke="rgba(200,162,106,0.12)"
+        stroke-width="10"
+        style="filter: blur(6px);"
+        class="path-golden"
+      />
+      <path
+        d="M 80 60 C 200 130 500 310 720 340"
+        pathLength="1"
+        stroke="url(#goldGrad)"
+        stroke-width="2"
+        class="path-golden"
+      />
+
+      <!-- Endpoints -->
+      <circle cx="80" cy="60" r="3" fill="#c8a26a" class="glow-dot" />
+      <circle cx="720" cy="340" r="3" fill="#c8a26a" class="glow-dot" />
+      <circle cx="80" cy="60" r="10" fill="rgba(200,162,106,0.1)" class="glow-dot" />
+      <circle cx="720" cy="340" r="10" fill="rgba(200,162,106,0.1)" class="glow-dot" />
+
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#c8a26a" />
+          <stop offset="100%" stop-color="#dfc090" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl mx-auto text-center">
+    <h1
+      class="text-5xl md:text-7xl font-serif font-bold text-text tracking-tight"
+      style="animation: fadeInUp 0.8s ease 0.3s both;"
+    >
+      Least Action AB
+    </h1>
+
+    <p
+      class="mt-3 text-xs tracking-[0.35em] uppercase text-gold/50 font-medium"
+      style="animation: fadeInUp 0.8s ease 0.5s both;"
+    >
+      AI &amp; Machine Learning Consultancy
+    </p>
+
+    <p
+      class="mt-8 text-base md:text-lg text-text-muted leading-relaxed"
+      style="animation: fadeInUp 0.8s ease 0.7s both;"
+    >
+      AI agents, LLM applications, and machine learning consulting.
+    </p>
+
+    <div style="animation: fadeInUp 0.8s ease 0.9s both;" class="mt-10">
+      <a
+        href="#contact"
+        class="group inline-flex items-center gap-2 px-8 py-3.5 bg-gold/90 text-bg font-medium rounded-card hover:bg-gold transition-all duration-300 hover:shadow-[0_0_24px_rgba(200,162,106,0.25)]"
+      >
+        Get in touch
+        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

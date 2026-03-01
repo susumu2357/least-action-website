@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0f1e;
+  --color-bg-alt: #0e1528;
+  --color-bg-card: #121a2e;
+  --color-text: #e4ddd4;
+  --color-text-muted: #8892a4;
+  --color-gold: #c8a26a;
+  --color-gold-light: #dfc090;
+  --color-blue: #5b8fd9;
+  --color-border: #151d30;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+
+  --radius-card: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: rgba(200, 162, 106, 0.3);
+  color: #e4ddd4;
+}
+
+/* Anchor scroll offset for fixed header */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Coordinate grid overlay */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(200, 162, 106, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 162, 106, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero path drawing */
+.path-bg {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: drawPath;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+.path-golden {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation-name: drawPath;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+.glow-dot {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
